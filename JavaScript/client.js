@@ -11,25 +11,26 @@ var vehicle = {
 	}
 } 
 
-window.onload = function(){
+$(document).ready(function(){
 	init();
-}
+});
 
-function $(elem){
-	return document.getElementById(elem);
-}
+//function $(elem){
+//	return document.getElementById(elem);
+//}
 
 function init(){
-	console.log("window loaded");
+	console.log("document ready");
 	initLayout();
 }
 
 function initLayout(){
-	$("drunk-container").onclick = function(){
-		console.log("clicked drunk-container");
-		$("drunk_menu-container").style.display = "block";
-		$("drunk_menu-container").appendChild(createTextField(vehicle));
-	}
+	$("#drunk-container").click(function(){
+		console.log("Hallo");
+		$("#drunk_menu-container").fadeIn('slow');
+		
+		$(createTextField(vehicle)).appendTo("#drunk_menu-container");
+	});
 }
 
 function createTextField(type){
