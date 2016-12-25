@@ -21,17 +21,40 @@ $(document).ready(function(){
 
 function init(){
 	console.log("document ready");
-	initLayout();
-}
-
-function initLayout(){
+	
 	$("#drunk-container").click(function(){
-		console.log("Hallo");
-		$("#drunk_menu-container").fadeIn('slow');
-		
-		$(createTextField(vehicle)).appendTo("#drunk_menu-container");
+		openPage("#drunk_menu-container");
+	});
+	
+	$("#drunk_menu-container").click(function(){
+		closePage("#drunk_menu-container");
+	});
+	
+	$(".dummy-container").click(function(){
+		openPage("#dummy_page-container");
+	});
+	
+	$("#dummy_page-container").click(function(){
+		closePage("#dummy_page-container");
 	});
 }
+
+function openPage(pageId){
+	$(pageId).fadeIn(0);
+	$(pageId).animate({
+		width:"80%",
+		height:"80%"
+	}, 800);
+}
+
+function closePage(pageId){
+	$(pageId).animate({
+		width:"0",
+		height:"0"
+	}, 800);
+	$(pageId).fadeOut(0);
+}
+
 
 function createTextField(type){
 	var textfield = document.createElement("INPUT");
