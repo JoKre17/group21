@@ -45,6 +45,7 @@ input:focus{
     text-align: -webkit-center;
     color: darkred;
     font-size: -webkit-xxx-large;
+	position: relative;
 }
 
 .menu-container:hover{
@@ -55,6 +56,17 @@ input:focus{
 
 .table-row{
 	display:table-row;
+}
+
+.home-screen-icon{
+	width: 100%;
+	position: absolute;  
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	padding: 5px;
 }
 
 #box-container{
