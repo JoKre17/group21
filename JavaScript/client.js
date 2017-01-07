@@ -30,6 +30,14 @@ function init(){
 		closePage("#drunk_menu-container");
 	});
 	
+	$("#profile-container").click(function(){
+		openPage("#profile_page-container");
+	});
+	
+	$("#profile_page-container").click(function(){
+		closePage("#profile_page-container");
+	});
+	
 	$(".dummy-container").click(function(){
 		openPage("#dummy_page-container");
 	});
