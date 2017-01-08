@@ -75,12 +75,14 @@ input:focus{
 .overlay-container{
 	font-size: -webkit-xxx-large;
 	background-color:rgba(255,255,255,1.0);
+}
 
 .abort{
-	width: 100%;
+	width: 15%;
 	position: absolute;  
-	bottom: 0;
-	margin: 0;
+	bottom: 1%;
+	right: 1%;
+	z-index: 3;
 }
 
 .table-row{
@@ -99,11 +101,7 @@ input:focus{
 }
 
 #abort_button{
-	position:absolute;
-	width: 10%;
-	bottom: 0%;
-	right: 0%;
-	margin: 3%;
+	display: none;
 
 }
 
