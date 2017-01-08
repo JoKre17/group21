@@ -72,6 +72,13 @@ input:focus{
 	
 }
 
+.abort{
+	width: 100%;
+	position: absolute;  
+	bottom: 0;
+	margin: 0;
+}
+
 .table-row{
 	display:table-row;
 	height:25%;
@@ -85,6 +92,15 @@ input:focus{
 	left: 0;
 	right: 0;
 	margin: auto;
+}
+
+#abort_button{
+	position:absolute;
+	width: 10%;
+	bottom: 0%;
+	right: 0%;
+	margin: 3%;
+
 }
 
 #box-container{
