@@ -26,24 +26,34 @@ function init(){
 		openPage("#drunk_menu-container");
 	});
 	
-	$("#drunk_menu-container").click(function(){
+	/*$("#drunk_menu-container").click(function(){
 		closePage("#drunk_menu-container");
-	});
+	});*/
 	
 	$("#profile-container").click(function(){
 		openPage("#profile_page-container");
 	});
 	
-	$("#profile_page-container").click(function(){
+	/*$("#profile_page-container").click(function(){
 		closePage("#profile_page-container");
-	});
+	});*/
 	
 	$(".dummy-container").click(function(){
 		openPage("#dummy_page-container");
+		console.log("Dummy opened");
 	});
 	
-	$("#dummy_page-container").click(function(){
-		closePage("#dummy_page-container");
+	/*$("#dummy_page-container").click(function(){
+		//closePage("#dummy_page-container");
+		console.log("clicked, dummy");
+	});*/
+	
+	$('.abort').click(function(e){
+		var parent_id = $(this).parent().parent().attr('id');
+		parent_id = "#" + parent_id;
+		console.log("abort button pressed" + parent_id);
+		closePage(parent_id);
+		
 	});
 }
 
@@ -147,6 +157,7 @@ function showDrunkMenuDialog(drunk_menu_container) {
 	drunk_menu_container.appendChild(infoLabel);
 	drunk_menu_container.appendChild(dropdown);
 }
+
 
 
 
