@@ -50,8 +50,8 @@ function init(){
 function openPage(pageId){
 	$(pageId).fadeIn(0);
 	$(pageId).animate({
-		width:"80%",
-		height:"80%"
+		width:"100%",
+		height:"100%"
 	}, 800);
 }
 

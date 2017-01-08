@@ -39,6 +39,7 @@ input:focus{
     flex-flow: row wrap;
     flex-direcion: row-reverse;
     text-align: center;
+	/*font-size: -webkit-xxx-large;*/
 }
 
 .flex-item { 
@@ -83,14 +84,13 @@ input:focus{
 	left: 0;
 	right: 0;
 	margin: auto;
-	padding: 5px;
 }
 
 #box-container{
 	position:relative; /* braucht es für die Footer Position*/
 	margin:0 auto; /* Zentriert die Seite (nicht in IE5) */
 	width:100%;
-	height:auto !important; /* normale Browser */
+	/*height:auto !important;*/ /* normale Browser */
 	height:100%; /* IE6: setzt dies wie min-height um*/
 	min-height:100%; /* normale Browser */
 	overflow:none;
@@ -134,54 +134,54 @@ input:focus{
 }
 
 #drunk_menu-container{
-	background-color:rgba(220,230,210,0.8);
+	background-color:rgba(230,230,230,1.0);
 	position:fixed;
 	width:0;
 	height:0;
-	left:10%;
-	top:10%;
+	left:0%;
+	top:0%;
 	z-index:2;
 	overflow:auto;
-	box-shadow:5px 10px 10px rgba(50,10,80,1);
+	/*box-shadow:5px 10px 10px rgba(50,10,80,1);*/
 	display:none;
 }
 
 #profile_page-container{
-	background-color:rgba(220,230,210,0.8);
+	background-color:rgba(230,230,230,1.0);
 	position:fixed;
 	width:0;
 	height:0;
-	left:10%;
-	top:10%;
+	left:0%;
+	top:0%;
 	z-index:2;
 	overflow:auto;
-	box-shadow:5px 10px 10px rgba(50,10,80,1);
+	/*box-shadow:5px 10px 10px rgba(50,10,80,1);*/
 	display:none;
 }
 
 #dummy_page-container{
 	font-family: fantasy;
     font-size: -webkit-xxx-large;
-	background-color:rgba(220,230,210,0.8);
+	background-color:rgba(230,230,230,1.0);
 	position:fixed;
 	width:0;
 	height:0;
-	left:10%;
-	top:10%;
+	left:0%;
+	top:0%;
 	z-index:2;
 	overflow:auto;
-	box-shadow:5px 10px 10px rgba(50,10,80,1);
+	/*box-shadow:5px 10px 10px rgba(50,10,80,1);*/
 	display:none;
 }
 
 #drunk_menu-container:hover{
-	background-color:rgba(220,230,210,1);
+	background-color:rgba(230,230,230,1);
 }
 
 #profile_page-container:hover{
-	background-color:rgba(220,230,210,1);
+	background-color:rgba(230,230,230,1);
 }
 
 #dummy_page-container:hover{
-	background-color:rgba(220,230,210,1);
+	background-color:rgba(230,230,230,1);
 }
