@@ -58,7 +58,7 @@ input:focus{
 	height:25%;
 	border: groove 1px rgba(100,100,100,1);
 	display:table-cell;
-	font-family: cursive;
+	/*font-family: cursive;*/
     font-variant: small-caps;
     text-align: -webkit-center;
     color: darkred;
@@ -67,9 +67,14 @@ input:focus{
 }
 
 .menu-container:hover{
-	font-family:comic;
-	border:1px solid rgba(100,200,100,1);
+	/*font-family:comic;*/
+	border:3px solid rgba(100,200,100,1);
 	
+}
+
+.overlay-container{
+	font-size: -webkit-xxx-large;
+	background-color:rgba(255,255,255,1.0);
 }
 
 .table-row{
@@ -135,7 +140,6 @@ input:focus{
 }
 
 #drunk_menu-container{
-	background-color:rgba(230,230,230,1.0);
 	position:fixed;
 	width:0;
 	height:0;
@@ -148,7 +152,6 @@ input:focus{
 }
 
 #profile_page-container{
-	background-color:rgba(230,230,230,1.0);
 	position:fixed;
 	width:0;
 	height:0;
@@ -161,9 +164,7 @@ input:focus{
 }
 
 #dummy_page-container{
-	font-family: fantasy;
-    font-size: -webkit-xxx-large;
-	background-color:rgba(230,230,230,1.0);
+	/*font-family: fantasy;*/
 	position:fixed;
 	width:0;
 	height:0;
@@ -176,13 +177,16 @@ input:focus{
 }
 
 #drunk_menu-container:hover{
-	background-color:rgba(230,230,230,1);
+	background-color:rgba(255,255,255,1);
 }
 
 #profile_page-container:hover{
-	background-color:rgba(230,230,230,1);
+	background-color:rgba(255,255,255,1);
 }
 
 #dummy_page-container:hover{
-	background-color:rgba(230,230,230,1);
+	background-color:rgba(255,255,255,1);
+}
+#location_screen{
+	
 }
