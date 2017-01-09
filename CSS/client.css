@@ -128,6 +128,8 @@ table, th, td {
 	left: 0;
 	right: 0;
 	margin: auto;
+	max-height: 70%;
+	max-width: 70%;
 }
 
 .centered-label{
