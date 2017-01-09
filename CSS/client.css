@@ -25,10 +25,15 @@ html, body{
 input{
 	border-radius:3px;
 	margin:10px;
+	font-size: -webkit-xxx-large;
 }
 
 input:focus{
 	background-color:rgba(250,235,200,1);
+}
+
+select{
+	font-size: -webkit-xxx-large;
 }
 
 .flex-container {
