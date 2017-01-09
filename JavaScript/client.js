@@ -68,11 +68,7 @@ function init(){
 
 function openPage(pageId){
 	showAbortButton(pageId);
-	$(pageId).fadeIn(0);
-	$(pageId).animate({
-		width:"100%",
-		height:"100%"
-	}, 800);
+	$(pageId).fadeIn(500);
 	
 	
 	switch($(pageId).attr('id')){
@@ -88,11 +84,7 @@ function openPage(pageId){
 }
 
 function closePage(pageId){
-	$(pageId).animate({
-		width:"0",
-		height:"0"
-	}, 800);
-	$(pageId).fadeOut(0);
+	$(pageId).fadeOut(500);
 	hideAbortButton();
 }
 
@@ -141,33 +133,65 @@ function showDrunkMenuDialog(drunk_menu_container) {
 	
 	var infoLabel = document.createElement('label');
 	infoLabel.innerHTML = "Select your destination";
-	infoLabel.style.display = '-webkit-box';
-	infoLabel.style.textAlign = '-webkit-center';
-	infoLabel.style.paddingTop = '10%';
+	infoLabel.id = "infoLabel";
+	infoLabel.className = "centered-label";
 	
-	// Building Destination Dropdown Menu
-	var dropdown = document.createElement('div');
+	
+	var dropdown = document.createElement('select');
 	dropdown.className = "dropdown";
+	dropdown.size = 15;
 	
-	var dropbutton = document.createElement('button');
-	dropbutton.className = "dropbutton";
-	dropbutton.innerHTML = "Dropdown";
-	
-	var dropdownContent = document.createElement('div');
-	dropdownContent.className = "dropdown-content";
-	
-	// Build options here
-	for(var i = 0; i < 5; i++) {
-		var option = document.createElement('label');
-		option.innerHTML = "Destination " + (i+1);
-		dropdownContent.appendChild(option);
+	for(var i = 1; i < 5; i++){
+		var option = document.createElement('option');
+		option.id = i;
+		option.innerHTML = "Destination " + i;
+		option.className = "dropdown-content";
+		$(dropdown).change(function(e) {
+			document.getElementById('priceLabel').innerHTML = "Price: " + (Math.round(Math.random()*5000) / 100) + " Euro";
+		});
+		dropdown.appendChild(option);
 	}
 	
-	dropdown.appendChild(dropbutton);
-	dropdown.appendChild(dropdownContent);
+	var priceLabel = document.createElement('label');
+	priceLabel.id = "priceLabel";
+	priceLabel.innerHTML = "Price: " + (Math.round(Math.random()*5000) / 100) + " Euro";
+	
+	var orderButton = document.createElement('button');
+	orderButton.id = "orderButton";
+	orderButton.innerHTML = "Order";
+	$(orderButton).click(function(){
+		showDrunkMenuWaitingDialog(drunk_menu_container);
+	});
 	
 	drunk_menu_container.appendChild(infoLabel);
 	drunk_menu_container.appendChild(dropdown);
+	drunk_menu_container.appendChild(priceLabel);
+	drunk_menu_container.appendChild(orderButton);
+	
+}
+
+function showDrunkMenuWaitingDialog(drunk_menu_container) {
+	clearPage("#" + drunk_menu_container.id);
+	
+	var waitLabel = document.createElement('label');
+	waitLabel.innerHTML = "Please wait...";
+	waitLabel.className = "centered-label";
+	waitLabel.style.marginTop = '30%';
+	
+	var carLabel = document.createElement('label');
+	carLabel.innerHTML = "Your car is on the way.";
+	carLabel.className = "centered-label";
+	carLabel.style.marginTop = '30%';
+	
+	var timeLabel = document.createElement('label');
+	timeLabel.innerHTML = "Estimated Time: 5 min";
+	timeLabel.className = "centered-label";
+	timeLabel.style.marginTop = '30%';
+	
+	drunk_menu_container.appendChild(waitLabel);
+	drunk_menu_container.appendChild(carLabel);
+	drunk_menu_container.appendChild(timeLabel);
+	
 }
 
 function showAbortButton(pageId) {
