@@ -153,7 +153,7 @@ function showDrunkMenuDialog(drunk_menu_container) {
 	priceLabel.innerHTML = "Price: " + (Math.round(Math.random()*5000) / 100) + " Euro";
 	
 	var orderButton = document.createElement('button');
-	orderButton.id = "orderButton";
+	orderButton.className = "bottom-right-button";
 	orderButton.innerHTML = "Order";
 	$(orderButton).click(function(){
 		showDrunkMenuWaitingDialog(drunk_menu_container);
@@ -184,9 +184,22 @@ function showDrunkMenuWaitingDialog(drunk_menu_container) {
 	timeLabel.className = "centered-label";
 	timeLabel.style.marginTop = '30%';
 	
+	var nextButton = document.createElement('button');
+	nextButton.className = "bottom-right-button";
+	nextButton.innerHTML = "Next";
+	$(nextButton).click(function(){
+		$('.abort').click();
+		$('#notification').fadeIn(1000);
+		window.setTimeout(function(){
+			$('#notification').fadeOut(1000);
+		}, 4000);
+	});
+	
 	drunk_menu_container.appendChild(waitLabel);
 	drunk_menu_container.appendChild(carLabel);
 	drunk_menu_container.appendChild(timeLabel);
+	drunk_menu_container.appendChild(nextButton);
+	
 	
 }
 
