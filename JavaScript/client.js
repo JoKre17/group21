@@ -42,6 +42,10 @@ function init(){
 		openPage("#settings_page-container");
 	});
 	
+	$('#route-container').click(function(){
+		openPage("#booking_page_route-container");
+	});
+	
 	$(".dummy-container").click(function(){
 		openPage("#dummy_page-container");
 		console.log("Dummy opened");

@@ -115,6 +115,18 @@ table, th, td {
 	z-index: 3;
 }
 
+.check{
+	height : 10%;
+	
+	position: absolute;
+	bottom: 1%;
+	left: auto;
+	right: auto;
+	z-index: 3;
+	
+
+}
+
 .table-row{
 	display:table-row;
 	height:25%;
@@ -130,9 +142,24 @@ table, th, td {
 	margin: auto;
 }
 
+h3.heading{
+	text-align: center;
+}
+
+.textbox_label{
+	text-align: center;
+	padding-right:5em
+}
+
 #abort_button{
 	display: none;
 
+}
+
+#check_button{
+	width : 15%;
+	display: table-footer-group;
+	
 }
 
 #box-container{
@@ -231,6 +258,23 @@ table, th, td {
 	display:none;
 }
 
+
+#booking_page_route-container{
+	position:fixed;
+	width:0;
+	height:0;
+	left:0%;
+	top:0%;
+	z-index:2;
+	overflow:auto;
+	/*box-shadow:5px 10px 10px rgba(50,10,80,1);*/
+	display:none;
+}
+
+#booking_page_route-container:hover{
+	background-color:rgba(255,255,255,1);
+}
+
 #drunk_menu-container:hover{
 	background-color:rgba(255,255,255,1);
 }
@@ -242,6 +286,9 @@ table, th, td {
 #dummy_page-container:hover{
 	background-color:rgba(255,255,255,1);
 }
+
 #location_screen{
 	
 }
+
+

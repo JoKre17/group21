@@ -17,7 +17,7 @@
 	</div>
 	<div id="box-container">
 		<div class="table-row">
-			<div id="route-container" class="menu-container dummy-container"><label>Book</label>
+			<div id="route-container" class="menu-container"><label>Book</label>
 				<image class='home-screen-icon' src='Resources/home_screen/01_car.png'></image>
 			</div>
 			<div id="drunk-container" class="menu-container"><label>Drunk</label>
@@ -101,6 +101,19 @@
 	</div>
 	<div id="dummy_page-container" class="overlay-container">
 		<label>Dummy Page</label>
+	</div>
+	<div id="booking_page_route-container" class="overlay-container">
+		<h3 class='heading'> Choose Route and Destination </h3>
+		<label class='textbox_label'> Arrival :</label><br></br>
+		<input type="text" name="Arrival" id="arrival"
+			oninput="set('arrival')"><br></br>
+		<label class='textbox_label'> Destination : </label><br></br>
+		<input type="text" name="Destination" id="destination"
+			oninput="set('destination')"><br></br>
+		<div id="check_button">
+			<image class='check' 
+			src='Resources/Buttons/check.png'></image> 
+		</div>
 	</div>
 </body>
 
