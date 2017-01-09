@@ -38,6 +38,10 @@ function init(){
 		closePage("#profile_page-container");
 	});*/
 	
+	$("#settings-container").click(function(){
+		openPage("#settings_page-container");
+	});
+	
 	$(".dummy-container").click(function(){
 		openPage("#dummy_page-container");
 		console.log("Dummy opened");

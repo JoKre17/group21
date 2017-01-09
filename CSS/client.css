@@ -61,6 +61,24 @@ input:focus{
 	font: 10px;
 }
 
+#anstehende-fahrten-div{
+	width: 630px;
+	height: 300px;
+	background-color: Gainsboro;
+	text-align: left;
+}
+
+#vergangene-fahrten-div{
+	width: 630px;
+	height: 300px;
+	background-color: Gainsboro;
+	text-align: left;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
 .dummy-container{
 	
 }
@@ -177,6 +195,18 @@ input:focus{
 }
 
 #profile_page-container{
+	position:fixed;
+	width:0;
+	height:0;
+	left:0%;
+	top:0%;
+	z-index:2;
+	overflow:auto;
+	/*box-shadow:5px 10px 10px rgba(50,10,80,1);*/
+	display:none;
+}
+
+#settings_page-container{
 	position:fixed;
 	width:0;
 	height:0;
