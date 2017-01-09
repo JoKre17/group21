@@ -79,8 +79,29 @@ function openPage(pageId){
 			buildLocationDetectionScreen(drunk_menu_container);
 			window.setTimeout(showDrunkMenuDialog, 1000, drunk_menu_container);
 			break;
+		case 'booking_page_route-container':
+			var book_menu_container = document.getElementById($(pageId).attr('id'));
+			clearPage(pageId);
+			book_menu_container.innerHTML = document.getElementById('book_menu').innerHTML;
+			$('#check_button').click(function(e){
+				book_menu_container.innerHTML = document.getElementById('book_specifications').innerHTML;
+				$('.check_final').click(function(e){
+				book_menu_container.innerHTML = document.getElementById('arival').innerHTML;
+					$('.check_final_final').click(function(e){
+						var parent_id = document.getElementById('abort_button').myParent;
+						closePage(parent_id);
+					});
+				});
+			});
+			
+			break;
 			
 	}
+}
+
+function checkFinal()
+{
+	book_menu_container.innerHTML = document.getElementById('arival').innerHTML;
 }
 
 function closePage(pageId){
