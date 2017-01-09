@@ -51,7 +51,8 @@ function init(){
 	$('.abort').click(function(e){
 		var parent_id = $(this).parent().parent().attr('id');
 		parent_id = "#" + parent_id;
-		console.log("abort button pressed" + parent_id);
+		e.stopPropagation();
+		//console.log("abort button pressed" + parent_id);
 		closePage(parent_id);
 		
 	});
