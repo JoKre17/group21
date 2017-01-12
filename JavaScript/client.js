@@ -162,6 +162,14 @@ function showDrunkMenuDialog(drunk_menu_container) {
 	dropdown.className = "dropdown";
 	dropdown.size = 15;
 	
+	var optionHome = document.createElement('option');
+	optionHome.innerHTML = "Home";
+	optionHome.className = "dropdown-content";
+	$(dropdown).change(function(e) {
+		document.getElementById('priceLabel').innerHTML = "Price: " + (Math.round(Math.random()*5000) / 100) + " Euro";
+	});
+	dropdown.appendChild(optionHome);
+	
 	for(var i = 1; i < 5; i++){
 		var option = document.createElement('option');
 		option.id = i;
