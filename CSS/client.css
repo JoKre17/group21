@@ -23,17 +23,29 @@ html, body{
 }
 
 input{
+	font-size : 44px;
 	border-radius:3px;
 	margin:10px;
-	font-size: -webkit-xxx-large;
+}
+
+select {
+	font-size : 44px;
+	border-radius:3px;
+	margin:10px;
+}
+
+input[type=checkbox]
+{
+	/* Double-sized Checkboxes */
+	-ms-transform: scale(4); /* IE */
+	-moz-transform: scale(4); /* FF */
+	-webkit-transform: scale(4); /* Safari and Chrome */
+	-o-transform: scale(4); /* Opera */
+	padding: 10px;
 }
 
 input:focus{
 	background-color:rgba(250,235,200,1);
-}
-
-select{
-	font-size: -webkit-xxx-large;
 }
 
 .flex-container {
@@ -149,7 +161,11 @@ table, th, td {
 
 .table-row{
 	display:table-row;
-	height:25%;
+	width:100%;
+}
+
+.table-cell{
+	display:table-cell;
 }
 
 .home-screen-icon{
@@ -208,7 +224,8 @@ h3.heading{
 }
 
 .select_label{
-	text-align: center;
+	text-align: left;
+	margin-left : 20%;
 	vertical-align: center;
 	display: block;
 	padding-top: 20px;
@@ -216,19 +233,25 @@ h3.heading{
 }
 
 .highlighted_label{
-	text-align: center;
-	vertical-align: center;
-	display: block;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
 
 .book_selector{
 	margin: 0 auto;
-	text-align:center;
+	margin-left : 20%;
+	text-align:left;
+	width : 60%;
 	vertical-align: center;
 	display: block;	
+}
 
+.seperator{
+	width : 80%;
+	margin-left : 10%;
+	padding-top : 5%;
+	padding-bottom : 2%;
+	border-bottom : 3px solid rgba(200,240,200,1);
 }
 
 #abort_button{

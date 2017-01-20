@@ -116,10 +116,10 @@
 	
 	<div id="book_menu"> 
 		<h3 class='heading'> Choose Route and Destination </h3>
-		<label class='textbox_label'> Arrival :</label><br></br>
+		<label class='textbox_label'> From :</label><br></br>
 		<input type="text" name="Arrival" id="arrival"
 			oninput="set('arrival')"><br></br>
-		<label class='textbox_label'> Destination : </label><br></br>
+		<label class='textbox_label'> To : </label><br></br>
 		<input type="text" name="Destination" id="destination"
 			oninput="set('destination')"><br></br>
 		<div id="check_button">
@@ -131,49 +131,34 @@
 	<div id="book_specifications" >
 		<h3 class='heading'> Choose A Ride </h3>
 		<div class="table-row">
-		<label class="highlighted_label"> From : Dummy Arrival Location . </label></div>
+			<div class="table-cell">From: </div>
+			<div class="table-cell" id="book_from"> Dummy 1</div>
+		</div>
 		<div class="table-row">
-		<label class="higtext-align:centerhlighted_label"> To : Dummy Destination Location . </label> </div>
-		<label class="select_label"> Profil : </label>
-		<select id="Profil" class="book_selector">
-			<option>Sportprofil</option>
-			<option>Normal</option>
-			<option>Transport</option>
+			<div class="table-cell">To: </div>
+			<div class="table-cell" id="book_to"> Dummy 2</div>
+		</div> 
+		<div class = "seperator">
+			<label class="select_label"> Vehikel : </label>
+			<select id="Vehikel" class="book_selector" onchange="set('Vehikel')">
 		</select>
-		<label class="select_label"> Vehikel : </label>
-		<select id="Vehikel" class="book_selector">
-			<option>T5</option>
-			<option>Lamborghini</option>
-			<option>Q3</option>
-		</select>
-		<label class="select_label"> Wann? : </label>
-		<select id="Wann?" class="book_selector">
-			<option>Sofort</option>
-			<option>In 30 Minuten</option>
-			<option>In 1 Stunde</option>
-		</select>
-		<label class="select_label"> Anzahl Mitfahrer : </label>
-		<select id="Anzahl_Mitfahrer" class="book_selector">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-			<option>6</option>
-			<option>7</option>
-		</select>
-		<label class="select_label"> Fremde Mitfahrer : </label>
-		<select id="Fremde Mitfahrer" class="book_selector">
-			<option>Nein</option>
-			<option>Ja</option>
-		</select>
-		
-		<label class="select_label"> Fahrassistenz : </label>
-		<select id="Fremde Mitfahrer" class="book_selector">
-			<option>Nein</option>
-			<option>Ja</option>
-		</select>
-		
+		</div>
+		<div class = "seperator">
+			<label class="select_label"> Wann? : </label>
+			<input type="date" id="Wann" class="book_selector" onchange="set('Wann')></input>
+		</div>
+		<div class = "seperator">
+			<label class="select_label"> Anzahl Mitfahrer : </label>
+			<input type="number" value=0 min=0 max=4 id="Anzahl_Mitfahrer" class="book_selector" pattern='[0-4]{1}' onInput="set('Anzahl_Mitfahrer')"></input>
+		</div>
+		<div class = "seperator">
+			<label class="select_label"> Fremde Mitfahrer : </label>
+			<input type="checkbox" id="Fremde_Mitfahrer" class="book_selector" onchange="set('Fremde_Mitfahrer')">
+		</div>
+		<div class = "seperator">
+			<label class="select_label"> Fahrassistenz : </label>
+			<input type="checkbox" id="Fahrtassistenz" class="book_selector" onchange="set('Fahrtassistenz')">
+		</div>
 		<div id="check_button">
 			<image class='check_final' 
 			src='Resources/Buttons/check.png'></image> 
@@ -182,27 +167,27 @@
 		
 	</div>
 	<div id="arival">
-		<h3 class="heading"> You chose this ride : </h3>
+		<h3 class="heading">Sie haben folgendes ausgewählt</h3>
 			<div class="table-row">
-				<label class="highlighted_label"> From : Dummy Arrival Location . </label>
+				<div class="table-cell">Von</div><div class="table-cell" id="res_from"></div>
 			</div>
 			<div class="table-row">
-				<label class="highlighted_label"> To : Dummy Destination Location . </label> 
+				<div class="table-cell">Nach</div><div class="table-cell" id="res_to"></div>
 			</div>
 			<div class="table-row">
-				<label class="highlighted_label"> Vehikel : T5 </label> 
+				<div class="table-cell">Vehikel</div><div class="table-cell" id="res_vehicle"></div>
 			</div>
 			<div class="table-row">
-				<label class="highlighted_label"> Abfahrt : In 30 Minuten </label> 
+				<div class="table-cell">Datum</div><div class="table-cell" id="res_date"></div>
 			</div>
 			<div class="table-row">
-				<label class="highlighted_label"> Mitfahrer : 2 </label> 
+				<div class="table-cell">Beifahrer</div><div class="table-cell" id="res_passengers"></div>
 			</div>
 			<div class="table-row">
-				<label class="highlighted_label"> Keine Fremden Mitfahrer </label> 
+				<div class="table-cell">Fremde Mitfahrer</div><div class="table-cell" id="res_foreigners"></div>
 			</div>
 			<div class="table-row">
-				<label class="highlighted_label"> Fahrassistenz erwuenscht</label> 
+				<div class="table-cell">Fahrtassistenz</div><div class="table-cell" id="res_assistance"></div>
 			</div>
 		
 		<div id="check_button">

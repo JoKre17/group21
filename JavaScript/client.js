@@ -2,14 +2,116 @@
  * 
  */
  
-var vehicle = {
-	0 : {
-		name : "Lamborghini"
+var vehicles = {
+	Lamborghini : {
+		name : "Lamborghini",
+		seats: 2,
+		assistance : true
 	},
-	1 : {
-		name : "Ferrari"
+	Ferrari : {
+		name : "Ferrari",
+		seats : 2,
+		assistance : true
+	},
+	Corsa : {
+		name : "Corsa",
+		seats : 5,
+		assistance : false
 	}
-} 
+}
+
+var targets = {
+	locations : {
+		Home : {
+			name : "Home",
+			price : 5.98
+		},
+		Parents : {
+			name : "Parents",
+			price : 23.21
+		},
+		Berlin : {
+			name : "Berlin",
+			from : "Hannover",
+			to : "Berlin",
+			price : 166.02,
+			date : "21.12.2016"
+		},
+		Hamburg : {
+			name : "Hamburg",
+			from : "Wunstorf",
+			to : "Hamburg",
+			price : 108.44,
+			date : "29.12.2016"
+		}
+	}
+}
+
+var selectedOptions = {
+	book : {
+		vehicle : vehicles.Lamborghini,
+		startTime : (new Date()).getTime(),
+		passengers : 0,
+		foreigners : true,
+		assistance : true,
+		start : null,
+		target : null
+	},
+	drunk : {
+		selected : targets.locations.Home
+	}
+}
+
+var soonTargets = {
+	
+}
+
+function fillVehicles(){
+	createOptions(vehicles,document.getElementById("Vehikel"));
+	document.getElementById("book_from").innerHTML = selectedOptions.book.start;
+	document.getElementById("book_to").innerHTML = selectedOptions.book.target;
+	
+	var now = new Date();
+	var day = ("0" + now.getDate()).slice(-2);
+	var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+	var today = day+"."+month+"."+now.getFullYear();
+
+	document.getElementById("Wann").valueAsDate = now;
+	selectedOptions.book.startTime = today;
+
+	document.getElementById("Anzahl_Mitfahrer").innerHTML = selectedOptions.book.passengers;
+	document.getElementById("Fremde_Mitfahrer").checked = selectedOptions.book.foreigners;
+	document.getElementById("Fahrtassistenz").checked = selectedOptions.book.assistance;
+}
+
+function fillBooking(){
+	document.getElementById("res_from").innerHTML = selectedOptions.book.start;
+	document.getElementById("res_to").innerHTML = selectedOptions.book.target;
+	document.getElementById("res_vehicle").innerHTML = selectedOptions.book.vehicle.name;
+	document.getElementById("res_date").innerHTML = selectedOptions.book.startTime;
+	document.getElementById("res_passengers").innerHTML = selectedOptions.book.passengers;
+	if (selectedOptions.book.foreigners){
+		document.getElementById("res_foreigners").innerHTML = "Ja";
+	} else {
+		document.getElementById("res_foreigners").innerHTML = "Nein";
+	}
+	if (selectedOptions.book.assistance){
+		document.getElementById("res_assistance").innerHTML = "Ja";
+	} else {
+		document.getElementById("res_assistance").innerHTML = "Nein";
+	}
+	
+}
+
+function createOptions(elements, target){
+	for (var ele in elements){
+		var opt = document.createElement("Option");
+		opt.text = elements[ele].name;
+		opt.id = elements[ele].name;
+		target.appendChild(opt);
+	}
+}
 
 $(document).ready(function(){
 	init();
@@ -84,6 +186,7 @@ function openPage(pageId){
 			clearPage(pageId);
 			book_menu_container.innerHTML = document.getElementById('book_menu').innerHTML;
 			$('#check_button').click(function(e){
+				
 				book_menu_container.innerHTML = document.getElementById('book_specifications').innerHTML;
 				$('.check_final').click(function(e){
 				book_menu_container.innerHTML = document.getElementById('arival').innerHTML;
@@ -91,7 +194,11 @@ function openPage(pageId){
 						var parent_id = document.getElementById('abort_button').myParent;
 						closePage(parent_id);
 					});
+					
+					fillBooking();
 				});
+
+				fillVehicles();
 			});
 			
 			break;
@@ -162,24 +269,17 @@ function showDrunkMenuDialog(drunk_menu_container) {
 	dropdown.className = "dropdown";
 	dropdown.size = 15;
 	
-	var optionHome = document.createElement('option');
-	optionHome.innerHTML = "Home";
-	optionHome.className = "dropdown-content";
 	$(dropdown).change(function(e) {
-		document.getElementById('priceLabel').innerHTML = "Price: " + (Math.round(Math.random()*5000) / 100) + " Euro";
+		selectedOptions.drunk.selected = targets.locations[e.target.value];
+		if (selectedOptions.drunk.selected.price != null){
+			document.getElementById('priceLabel').innerHTML = "Preis: " + selectedOptions.drunk.selected.price + " Euro";
+		} else {
+			document.getElementById('priceLabel').innerHTML = "Preis: " + (Math.round(Math.random()*5000) / 100) + " Euro";
+		}
 	});
-	dropdown.appendChild(optionHome);
 	
-	for(var i = 1; i < 5; i++){
-		var option = document.createElement('option');
-		option.id = i;
-		option.innerHTML = "Destination " + i;
-		option.className = "dropdown-content";
-		$(dropdown).change(function(e) {
-			document.getElementById('priceLabel').innerHTML = "Price: " + (Math.round(Math.random()*5000) / 100) + " Euro";
-		});
-		dropdown.appendChild(option);
-	}
+	//Create Options
+	createOptions(targets.locations,dropdown);
 	
 	var priceLabel = document.createElement('label');
 	priceLabel.id = "priceLabel";
@@ -246,7 +346,31 @@ function hideAbortButton() {
 	document.getElementById('abort_button').style.display = "none";
 }
 
-
+function set(string){
+	switch(string){
+		case "arrival" :
+			selectedOptions.book.start = document.getElementById("arrival").value;
+			break;
+		case "destination" :
+			selectedOptions.book.target = document.getElementById("destination").value;
+			break;
+		case "Vehikel" :
+			selectedOptions.book.vehicle = vehicles[document.getElementById("Vehikel").value];
+			break;
+		case "Wann" :
+			
+			break;
+		case "Anzahl_Mitfahrer" : 
+			selectedOptions.book.passengers = document.getElementById("destination").value;
+			break;
+		case "Fremde_Mitfahrer" :
+			selectedOptions.book.foreigners = document.getElementById("Fremde_Mitfahrer").checked;
+			break;
+		case "Fahrtassistenz" :
+			selectedOptions.book.foreigners = document.getElementById("Fahrtassistenz").checked;
+			break;
+	} 
+}
 
 
 
