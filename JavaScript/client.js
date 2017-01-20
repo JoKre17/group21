@@ -63,8 +63,8 @@ var selectedOptions = {
 }
 
 var soonTargets = {
-	
-}
+	locations : []
+};
 
 function fillVehicles(){
 	createOptions(vehicles,document.getElementById("Vehikel"));
@@ -192,6 +192,7 @@ function openPage(pageId){
 				book_menu_container.innerHTML = document.getElementById('arival').innerHTML;
 					$('.check_final_final').click(function(e){
 						var parent_id = document.getElementById('abort_button').myParent;
+						logSoon();
 						closePage(parent_id);
 					});
 					
@@ -202,7 +203,9 @@ function openPage(pageId){
 			});
 			
 			break;
-			
+		case 'settings_page-container' :
+			createTable(targets.locations, document.getElementById("log_previous"));
+			break;
 	}
 }
 
@@ -361,7 +364,7 @@ function set(string){
 			
 			break;
 		case "Anzahl_Mitfahrer" : 
-			selectedOptions.book.passengers = document.getElementById("destination").value;
+			selectedOptions.book.passengers = document.getElementById("Anzahl_Mitfahrer").value;
 			break;
 		case "Fremde_Mitfahrer" :
 			selectedOptions.book.foreigners = document.getElementById("Fremde_Mitfahrer").checked;
@@ -372,7 +375,34 @@ function set(string){
 	} 
 }
 
+//
+function logSoon(){
+	//TODO
+	soonTargets.locations.push(
+		selectedOptions.book
+	);
+	console.log(soonTargets);
+}
 
+function createTable(container, target){
+	target.innerHTML = "";
+	for (var loc in container){
+		var act = container[loc];
+		
+		if (act.date != null){
+			var row = document.createElement("div");
+			row.className = "table-row";
+			target.appendChild(row);
+			
+			for (var property in act){
+				var cell = document.createElement("div");
+				cell.className = "table-cell";
+				cell.innerHTML = act[property];
+				row.appendChild(cell);
+			}
+		}
+	}
+}
 
 
 

@@ -76,30 +76,9 @@
 		<div class='flex-container'>
 			<h3>Vergangene Fahrten</h3>
 			<div id='vergangene-fahrten-div' class='flex-item'>
-			<table>
-				<thead>
-					<tr>
-						<th>Von</th>
-						<th>Nach</th>
-						<th>Datum</th>
-						<th>Preis</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Hamburg</td>
-						<td>Berlin</td>	
-						<td>21.12.16</td>
-						<td>18 Eur</td>
-					</tr>
-					<tr>
-						<td>Berlin</td>
-						<td>Dresden</td>	
-						<td>21.12.16</td>
-						<td>24 Eur</td>
-					</tr>
-				</tbody>
-			</table>
+			<div id="log_previous" class="table">
+				
+			</div>
 			</div>
 		</div>	
 	</div>
@@ -115,11 +94,11 @@
 	</div>
 	
 	<div id="book_menu"> 
-		<h3 class='heading'> Choose Route and Destination </h3>
-		<label class='textbox_label'> From :</label><br></br>
+		<h3 class='heading'> Wählen Sie eine Strecke </h3>
+		<label class='textbox_label'> Von :</label><br></br>
 		<input type="text" name="Arrival" id="arrival"
 			oninput="set('arrival')"><br></br>
-		<label class='textbox_label'> To : </label><br></br>
+		<label class='textbox_label'> Nach : </label><br></br>
 		<input type="text" name="Destination" id="destination"
 			oninput="set('destination')"><br></br>
 		<div id="check_button">
@@ -129,23 +108,21 @@
 		
 	</div>
 	<div id="book_specifications" >
-		<h3 class='heading'> Choose A Ride </h3>
+		<h3 class='heading'> Wählen Sie eine Stecke </h3>
 		<div class="table-row">
-			<div class="table-cell">From: </div>
-			<div class="table-cell" id="book_from"> Dummy 1</div>
+			<div class="table-cell">Von </div><div class="table-cell" id="book_from"> Dummy 1</div>
 		</div>
 		<div class="table-row">
-			<div class="table-cell">To: </div>
-			<div class="table-cell" id="book_to"> Dummy 2</div>
+			<div class="table-cell">Nach </div><div class="table-cell" id="book_to"> Dummy 2</div>
 		</div> 
 		<div class = "seperator">
-			<label class="select_label"> Vehikel : </label>
+			<label class="select_label"> Vehikel </label>
 			<select id="Vehikel" class="book_selector" onchange="set('Vehikel')">
 		</select>
 		</div>
 		<div class = "seperator">
-			<label class="select_label"> Wann? : </label>
-			<input type="date" id="Wann" class="book_selector" onchange="set('Wann')></input>
+			<label class="select_label"> Wann </label>
+			<input type="date" id="Wann" class="book_selector" onchange="set('Wann')"></input>
 		</div>
 		<div class = "seperator">
 			<label class="select_label"> Anzahl Mitfahrer : </label>
