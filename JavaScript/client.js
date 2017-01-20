@@ -42,6 +42,10 @@ function init(){
 		openPage("#settings_page-container");
 	});
 	
+	$('#route-container').click(function(){
+		openPage("#booking_page_route-container");
+	});
+	
 	$(".dummy-container").click(function(){
 		openPage("#dummy_page-container");
 		console.log("Dummy opened");
@@ -75,8 +79,29 @@ function openPage(pageId){
 			buildLocationDetectionScreen(drunk_menu_container);
 			window.setTimeout(showDrunkMenuDialog, 1000, drunk_menu_container);
 			break;
+		case 'booking_page_route-container':
+			var book_menu_container = document.getElementById($(pageId).attr('id'));
+			clearPage(pageId);
+			book_menu_container.innerHTML = document.getElementById('book_menu').innerHTML;
+			$('#check_button').click(function(e){
+				book_menu_container.innerHTML = document.getElementById('book_specifications').innerHTML;
+				$('.check_final').click(function(e){
+				book_menu_container.innerHTML = document.getElementById('arival').innerHTML;
+					$('.check_final_final').click(function(e){
+						var parent_id = document.getElementById('abort_button').myParent;
+						closePage(parent_id);
+					});
+				});
+			});
+			
+			break;
 			
 	}
+}
+
+function checkFinal()
+{
+	book_menu_container.innerHTML = document.getElementById('arival').innerHTML;
 }
 
 function closePage(pageId){
@@ -136,6 +161,14 @@ function showDrunkMenuDialog(drunk_menu_container) {
 	var dropdown = document.createElement('select');
 	dropdown.className = "dropdown";
 	dropdown.size = 15;
+	
+	var optionHome = document.createElement('option');
+	optionHome.innerHTML = "Home";
+	optionHome.className = "dropdown-content";
+	$(dropdown).change(function(e) {
+		document.getElementById('priceLabel').innerHTML = "Price: " + (Math.round(Math.random()*5000) / 100) + " Euro";
+	});
+	dropdown.appendChild(optionHome);
 	
 	for(var i = 1; i < 5; i++){
 		var option = document.createElement('option');

@@ -16,7 +16,7 @@
 	</div>
 	<div id="box-container">
 		<div class="table-row">
-			<div id="route-container" class="menu-container dummy-container"><label>Book</label>
+			<div id="route-container" class="menu-container"><label>Book</label>
 				<image class='home-screen-icon' src='Resources/home_screen/01_car.png'></image>
 			</div>
 			<div id="drunk-container" class="menu-container"><label>Drunk</label>
@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		<div class="table-row">
-			<div id="settings-container" class="menu-container"><label>Settings</label>
+			<div id="settings-container" class="menu-container"><label>Logbook</label>
 				<image class='home-screen-icon' src='Resources/home_screen/03_book.png'></image>
 			</div>
 			<div id="profile-container" class="menu-container"><label>Profile</label>
@@ -96,7 +96,7 @@
 						<td>Berlin</td>
 						<td>Dresden</td>	
 						<td>21.12.16</td>
-						<td>18 Eur</td>
+						<td>24 Eur</td>
 					</tr>
 				</tbody>
 			</table>
@@ -106,6 +106,109 @@
 	<div id="dummy_page-container" class="overlay-container">
 		<label>Dummy Page</label>
 	</div>
+	<div id="booking_page_route-container" class="overlay-container">
+		
+	</div>
+	
+	<div id="route_page_specifications" class="overlay-container">
+		<label>Dummy Page</label>
+	</div>
+	
+	<div id="book_menu"> 
+		<h3 class='heading'> Choose Route and Destination </h3>
+		<label class='textbox_label'> Arrival :</label><br></br>
+		<input type="text" name="Arrival" id="arrival"
+			oninput="set('arrival')"><br></br>
+		<label class='textbox_label'> Destination : </label><br></br>
+		<input type="text" name="Destination" id="destination"
+			oninput="set('destination')"><br></br>
+		<div id="check_button">
+			<image class='check' 
+			src='Resources/Buttons/check.png'></image> 
+		</div>
+		
+	</div>
+	<div id="book_specifications" >
+		<h3 class='heading'> Choose A Ride </h3>
+		<div class="table-row">
+		<label class="highlighted_label"> From : Dummy Arrival Location . </label></div>
+		<div class="table-row">
+		<label class="higtext-align:centerhlighted_label"> To : Dummy Destination Location . </label> </div>
+		<label class="select_label"> Profil : </label>
+		<select id="Profil" class="book_selector">
+			<option>Sportprofil</option>
+			<option>Normal</option>
+			<option>Transport</option>
+		</select>
+		<label class="select_label"> Vehikel : </label>
+		<select id="Vehikel" class="book_selector">
+			<option>T5</option>
+			<option>Lamborghini</option>
+			<option>Q3</option>
+		</select>
+		<label class="select_label"> Wann? : </label>
+		<select id="Wann?" class="book_selector">
+			<option>Sofort</option>
+			<option>In 30 Minuten</option>
+			<option>In 1 Stunde</option>
+		</select>
+		<label class="select_label"> Anzahl Mitfahrer : </label>
+		<select id="Anzahl_Mitfahrer" class="book_selector">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+			<option>6</option>
+			<option>7</option>
+		</select>
+		<label class="select_label"> Fremde Mitfahrer : </label>
+		<select id="Fremde Mitfahrer" class="book_selector">
+			<option>Nein</option>
+			<option>Ja</option>
+		</select>
+		
+		<label class="select_label"> Fahrassistenz : </label>
+		<select id="Fremde Mitfahrer" class="book_selector">
+			<option>Nein</option>
+			<option>Ja</option>
+		</select>
+		
+		<div id="check_button">
+			<image class='check_final' 
+			src='Resources/Buttons/check.png'></image> 
+		</div>
+		
+		
+	</div>
+	<div id="arival">
+		<h3 class="heading"> You chose this ride : </h3>
+			<div class="table-row">
+				<label class="highlighted_label"> From : Dummy Arrival Location . </label>
+			</div>
+			<div class="table-row">
+				<label class="highlighted_label"> To : Dummy Destination Location . </label> 
+			</div>
+			<div class="table-row">
+				<label class="highlighted_label"> Vehikel : T5 </label> 
+			</div>
+			<div class="table-row">
+				<label class="highlighted_label"> Abfahrt : In 30 Minuten </label> 
+			</div>
+			<div class="table-row">
+				<label class="highlighted_label"> Mitfahrer : 2 </label> 
+			</div>
+			<div class="table-row">
+				<label class="highlighted_label"> Keine Fremden Mitfahrer </label> 
+			</div>
+			<div class="table-row">
+				<label class="highlighted_label"> Fahrassistenz erwuenscht</label> 
+			</div>
+		
+		<div id="check_button">
+			<image class='check_final_final' 
+			src='Resources/Buttons/check.png'></image> 
+		</div>
 </body>
 
 </html>
