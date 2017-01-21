@@ -141,6 +141,9 @@ function fillBooking(){
 
 function createOptions(elements, target){
 	for (var ele in elements){
+		if(ele === "Header"){
+			continue;
+		}
 		var opt = document.createElement("Option");
 		opt.text = elements[ele].name;
 		opt.id = elements[ele].name;
