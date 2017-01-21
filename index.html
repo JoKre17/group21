@@ -41,7 +41,7 @@
 	<div id="profile_page-container" class="overlay-container">
 		<div class='flex-container'>
 			<div class='flex-item'>
-				<h1>Profil:</h1>
+				<h1>Profile:</h1>
 			</div>
 			<div id='change-profile-div' class='flex-item'>
 				<image height='50' width='50' src='http://www.citizenscientificworkshop.com/wp-content/uploads/2014/06/Assembly-icon-400x400.png'></image>
@@ -55,7 +55,7 @@
 				<br>
 				<label class='content-label'>jana@web.de</label>
 				<br>
-				<label>Heimatadresse:</label>
+				<label>Home address:</label>
 				<br>
 				<label class='content-label'>Musterweg 14</label>	
 			</div>
@@ -64,9 +64,9 @@
 			</div>
 		</div>
 	</div>
-	<div id="settings_page-container" class="overlay-container"><h1>Fahrtenbuch</h1>
+	<div id="settings_page-container" class="overlay-container"><h1>Logbook</h1>
 		<div class='flex-container'>
-			<h3>Anstehende Fahrten</h3>
+			<h3>Upcoming rides</h3>
 			<div id='anstehende-fahrten-div'class='flex-item'>
 				<div id="log_soon" class="table">
 					
@@ -74,7 +74,7 @@
 			</div>	
 		</div>
 		<div class='flex-container'>
-			<h3>Vergangene Fahrten</h3>
+			<h3>Preceding ride</h3>
 			<div id='vergangene-fahrten-div' class='flex-item'>
 				<div id="log_previous" class="table">
 					
@@ -94,11 +94,11 @@
 	</div>
 	
 	<div id="book_menu"> 
-		<h3 class='heading'> Wählen Sie eine Strecke </h3>
-		<label class='textbox_label'> Von :</label><br></br>
+		<h3 class='heading'>Choose a route</h3>
+		<label class='textbox_label'> From :</label><br></br>
 		<input type="text" name="Arrival" id="arrival"
 			oninput="set('arrival')"><br></br>
-		<label class='textbox_label'> Nach : </label><br></br>
+		<label class='textbox_label'> To : </label><br></br>
 		<input type="text" name="Destination" id="destination"
 			oninput="set('destination')"><br></br>
 		<div id="check_button">
@@ -108,32 +108,32 @@
 		
 	</div>
 	<div id="book_specifications" >
-		<h3 class='heading'> Wählen Sie eine Stecke </h3>
+		<h3 class='heading'> Choose a route </h3>
 		<div class="table-row">
-			<div class="table-cell">Von </div><div class="table-cell" id="book_from"> Dummy 1</div>
+			<div class="table-cell">From </div><div class="table-cell" id="book_from"> Dummy 1</div>
 		</div>
 		<div class="table-row">
-			<div class="table-cell">Nach </div><div class="table-cell" id="book_to"> Dummy 2</div>
+			<div class="table-cell">To </div><div class="table-cell" id="book_to"> Dummy 2</div>
 		</div> 
 		<div class = "seperator">
-			<label class="select_label"> Vehikel </label>
+			<label class="select_label"> Vehicle </label>
 			<select id="Vehikel" class="book_selector" onchange="set('Vehikel')">
 		</select>
 		</div>
 		<div class = "seperator">
-			<label class="select_label"> Wann </label>
+			<label class="select_label"> When </label>
 			<input type="date" id="Wann" class="book_selector" onchange="set('Wann')"></input>
 		</div>
 		<div class = "seperator">
-			<label class="select_label"> Anzahl Mitfahrer : </label>
+			<label class="select_label"> Amount of fellow passengers : </label>
 			<input type="number" value=0 min=0 max=4 id="Anzahl_Mitfahrer" class="book_selector" pattern='[0-4]{1}' onInput="set('Anzahl_Mitfahrer')"></input>
 		</div>
 		<div class = "seperator">
-			<label class="select_label"> Fremde Mitfahrer : </label>
+			<label class="select_label"> Foreign passengers : </label>
 			<input type="checkbox" id="Fremde_Mitfahrer" class="book_selector" onchange="set('Fremde_Mitfahrer')">
 		</div>
 		<div class = "seperator">
-			<label class="select_label"> Fahrassistenz : </label>
+			<label class="select_label"> Driving assistance : </label>
 			<input type="checkbox" id="Fahrtassistenz" class="book_selector" onchange="set('Fahrtassistenz')">
 		</div>
 		<div id="check_button">
@@ -144,27 +144,27 @@
 		
 	</div>
 	<div id="arival">
-		<h3 class="heading">Sie haben folgendes ausgewählt</h3>
+		<h3 class="heading">You've choose the following</h3>
 			<div class="table-row">
-				<div class="table-cell">Von</div><div class="table-cell" id="res_from"></div>
+				<div class="table-cell">From</div><div class="table-cell" id="res_from"></div>
 			</div>
 			<div class="table-row">
-				<div class="table-cell">Nach</div><div class="table-cell" id="res_to"></div>
+				<div class="table-cell">To</div><div class="table-cell" id="res_to"></div>
 			</div>
 			<div class="table-row">
-				<div class="table-cell">Vehikel</div><div class="table-cell" id="res_vehicle"></div>
+				<div class="table-cell">Vehicel</div><div class="table-cell" id="res_vehicle"></div>
 			</div>
 			<div class="table-row">
-				<div class="table-cell">Datum</div><div class="table-cell" id="res_date"></div>
+				<div class="table-cell">Date</div><div class="table-cell" id="res_date"></div>
 			</div>
 			<div class="table-row">
-				<div class="table-cell">Beifahrer</div><div class="table-cell" id="res_passengers"></div>
+				<div class="table-cell">Fellow passengers</div><div class="table-cell" id="res_passengers"></div>
 			</div>
 			<div class="table-row">
-				<div class="table-cell">Fremde Mitfahrer</div><div class="table-cell" id="res_foreigners"></div>
+				<div class="table-cell">Foreign passengers</div><div class="table-cell" id="res_foreigners"></div>
 			</div>
 			<div class="table-row">
-				<div class="table-cell">Fahrtassistenz</div><div class="table-cell" id="res_assistance"></div>
+				<div class="table-cell">Driving assistance</div><div class="table-cell" id="res_assistance"></div>
 			</div>
 		
 		<div id="check_button">

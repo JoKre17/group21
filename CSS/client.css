@@ -4,6 +4,7 @@ html, body{
 	height:100%;
 	padding:0;
 	margin:0;
+	font-family: Calibri;
 }
 
 ::-webkit-scrollbar {
@@ -23,15 +24,16 @@ html, body{
 }
 
 input{
+	position : relative;
 	font-size : 44px;
 	border-radius:3px;
-	margin:10px;
+	width: 90%;
+	left: 5%;
+	box-shadow: 10px 10px 10px grey;
 }
 
-select {
-	font-size : 44px;
-	border-radius:3px;
-	margin:10px;
+input:focus{
+	background-color:rgba(250,235,200,1);
 }
 
 input[type=checkbox]
@@ -42,25 +44,27 @@ input[type=checkbox]
 	-webkit-transform: scale(4); /* Safari and Chrome */
 	-o-transform: scale(4); /* Opera */
 	padding: 10px;
+	box-shadow: 0px 0px 0px;
 }
 
-input:focus{
-	background-color:rgba(250,235,200,1);
+select {
+	font-size : 44px;
+	border-radius:3px;
+	margin:10px;
+}
+
+label {
+	margin: 15px;
+}
+
+option {
+	font-size: inherit;
 }
 
 .flex-container {
-    display: -webkit-flex;
-    display: flex;  
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-    flex-direcion: row-reverse;
-    text-align: center;
-	/*font-size: -webkit-xxx-large;*/
 }
 
 .flex-item { 
-	width: 350px; 
-	height: 200px; 
 	margin: 10px; 
 	text-align: left;
 } 
@@ -79,14 +83,10 @@ input:focus{
 }
 
 #anstehende-fahrten-div{
-	width: 630px;
-	height: 300px;
 	text-align: left;
 }
 
 #vergangene-fahrten-div{
-	width: 630px;
-	height: 300px;
 	text-align: left;
 }
 
@@ -111,12 +111,6 @@ table, th, td {
 	position: relative;
 }
 
-.menu-container:hover{
-	/*font-family:comic;*/
-	border:3px solid rgba(100,200,100,1);
-	
-}
-
 .overlay-container{
 	font-size: -webkit-xxx-large;
 	background-color:rgba(255,255,255,1.0);
@@ -131,43 +125,34 @@ table, th, td {
 }
 
 .check{
-	height : 10%;
-	position: absolute;
-	bottom: 1%;
-	left: auto;
-	right: auto;
-	z-index: 3;
-	
-
+	width: 30%;
 }
 
 .check_final{
-	height : 10%;
-	position : absolute;
-	vertical-align:center;
-	z-index: 3;
+	width: 30%;
 }
 
 .check_final_final{
-	height : 10%;
-	position : absolute;
-		bottom: 1%;
-	vertical-align:center;
-	z-index: 3;
+	width: 30%;
 }
 
 
 .table-row{
 	display:table-row;
-	width:100%;
 	padding:20px;
-	border: 1px solid rgba(100,140,100,1);
-	background-color: rgba(200,240,200,1);
+	background-color: rgba(220,255,220,1);
 }
 
 .table-cell{
 	display:table-cell;
-	border: 1px solid rgba(100,140,100,1);
+	padding: 5px;
+}
+
+.table-cell-vertical{
+	display: table-cell;
+	padding: 5px;
+	width: 20%;
+	
 }
 
 .home-screen-icon{
@@ -227,7 +212,7 @@ h3.heading{
 
 .select_label{
 	text-align: left;
-	margin-left : 20%;
+	width: 80%;
 	vertical-align: center;
 	display: block;
 	padding-top: 20px;
@@ -241,9 +226,10 @@ h3.heading{
 
 .book_selector{
 	margin: 0 auto;
-	margin-left : 20%;
+	margin-left : 5%;
 	text-align:left;
-	width : 60%;
+	width : 90%;
+	left : 0;
 	vertical-align: center;
 	display: block;	
 }
@@ -261,8 +247,9 @@ h3.heading{
 }
 
 #check_button{
-	width : 15%;
-	display: table-footer-group;
+	left: 0;
+	bottom: 0;
+	position: absolute;
 	
 }
 
@@ -369,25 +356,15 @@ h3.heading{
 	display:none;
 }
 
-#drunk_menu-container:hover{
-	background-color:rgba(255,255,255,1);
-}
-
-#profile_page-container:hover{
-	background-color:rgba(255,255,255,1);
-}
-
-#dummy_page-container:hover{
-	background-color:rgba(255,255,255,1);
-}
 #notification{
 	position:fixed;
-	width:5%;
+	width:100%;
 	height:5%;
 	left: 0;
 	top: 0;
 	z-index:3;
 	display: none;
+	font-size: 44px;
 	background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -402,6 +379,12 @@ h3.heading{
 
 #book_menu{
 	display:none;
+}
+#book_from{
+	padding-left: 30px;
+}
+#book_to{
+	padding-left: 30px;
 }
 
 #book_specifications{

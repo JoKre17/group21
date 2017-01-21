@@ -22,6 +22,14 @@ var vehicles = {
 
 var targets = {
 	locations : {
+		//Table Header
+		Header : {
+			name : "Name",
+			from : "From",
+			to : "To",
+			price : "Price",
+			date : "Date"
+		},
 		Home : {
 			name : "Home",
 			from : "Chez Heinz",
@@ -71,6 +79,13 @@ var selectedOptions = {
 
 var soonTargets = {
 	locations : {
+		Header : {
+			name : "Name",
+			from : "From",
+			to : "To",
+			price : "Price",
+			date : "Date"
+		},
 		Soon : {
 			name : null,
 			from : null,
@@ -80,6 +95,11 @@ var soonTargets = {
 		}
 	}
 };
+
+var statusColor = {
+	valid : "LightGreen",
+	invalid : "LightCoral"
+}
 
 function fillVehicles(){
 	createOptions(vehicles,document.getElementById("Vehikel"));
@@ -202,6 +222,22 @@ function openPage(pageId){
 			book_menu_container.innerHTML = document.getElementById('book_menu').innerHTML;
 			$('#check_button').click(function(e){
 				
+				var arrival = document.getElementById("arrival");
+				var destination = document.getElementById("destination");
+				if(arrival.value === "" || destination.value === "") {
+					if(arrival.value === ""){
+						arrival.style.backgroundColor = statusColor.invalid;
+					} else {
+						arrival.style.backgroundColor = statusColor.valid;
+					}
+					if(destination.value === ""){
+						destination.style.backgroundColor = statusColor.invalid;
+					} else {
+						destination.style.backgroundColor = statusColor.valid;
+					}
+					return;
+				}
+				
 				book_menu_container.innerHTML = document.getElementById('book_specifications').innerHTML;
 				$('.check_final').click(function(e){
 				book_menu_container.innerHTML = document.getElementById('arival').innerHTML;
@@ -220,7 +256,16 @@ function openPage(pageId){
 			
 			break;
 		case 'settings_page-container' :
-			createTable(soonTargets.locations, document.getElementById("log_soon"));
+			var counter = 0;
+			for(var element in soonTargets.locations){
+				counter = counter + 1;
+				console.log(counter);
+			}
+			console.log(soonTargets.locations);
+			if(counter > 1){
+				createTable(soonTargets.locations, document.getElementById("log_soon"));
+			}
+			
 			createTable(targets.locations, document.getElementById("log_previous"));
 			break;
 	}
@@ -410,14 +455,64 @@ function logSoonDrunk(){
 	soonTargets.locations.Soon.date = new Date();
 }
 
-function createTable(container, target){
+function createTable(container, target, direction){
 	target.innerHTML = "";
+	var firstRow = true;
+	
+	if(direction === "vertical"){
+		var rowList = new Array();
+		for (var loc in container){
+			var act = container[loc];
+			
+			if (act.date != null){
+				var count = 0;
+				for (var property in act){
+					var row;
+					if(firstRow){
+						row = document.createElement("div");
+						row.className = "table-row";
+						rowList.push(row);
+					} else {
+						row = rowList[count];
+					}
+					
+					var cell = document.createElement("div");
+					
+					if(firstRow){
+						cell.className = "table-cell-vertical";
+					} else {
+						cell.className = "table-cell";
+					}
+					
+					cell.innerHTML = act[property];
+					row.appendChild(cell);
+					
+					count = count + 1;
+				}
+				if(firstRow){
+					firstRow = false;
+				}
+				
+			}
+		}
+		for(var element in rowList){
+			target.appendChild(rowList[element]);
+		}
+		
+		return;
+	}
+	
 	for (var loc in container){
 		var act = container[loc];
 		
 		if (act.date != null){
 			var row = document.createElement("div");
 			row.className = "table-row";
+			if(firstRow){
+				row.style.fontWeight = "bold";
+				firstRow = false;
+			}
+			
 			target.appendChild(row);
 			
 			for (var property in act){
@@ -435,19 +530,22 @@ function createNotifications(){
 		$('#notification').click(function(){
 			$("#notification").html("?");
 			$('#notification').animate({
-				width:"80%",
 				height:"40%"
 			}, 1000);
 			console.log("display Data in Notifications");
-			createTable(soonTargets.locations, document.getElementById("notification"));
+			createTable(soonTargets.locations, document.getElementById("notification"), "vertical");
+			
 			setTimeout(function(){
-				$("#notification").html("?");
+				
 				console.log("close Notifications");
-					$('#notification').animate({
-					width:"5%",
+				$("#notification").html("?");
+				
+				$('#notification').animate({
 					height:"5%"
 				}, 1000);
+				
 			}, 3000);
+			
 		});
 }
 
