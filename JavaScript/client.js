@@ -24,11 +24,17 @@ var targets = {
 	locations : {
 		Home : {
 			name : "Home",
-			price : 5.98
+			from : "Chez Heinz",
+			to : "Home",
+			price : 7.01,
+			date : "11.8.2016"
 		},
 		Parents : {
 			name : "Parents",
-			price : 23.21
+			from : "Hannover",
+			to : "Parents",
+			price : 23.21,
+			date : "23.12.2016"
 		},
 		Berlin : {
 			name : "Berlin",
@@ -50,12 +56,13 @@ var targets = {
 var selectedOptions = {
 	book : {
 		vehicle : vehicles.Lamborghini,
-		startTime : (new Date()).getTime(),
+		startTime : new Date(),
 		passengers : 0,
-		foreigners : true,
-		assistance : true,
+		foreigners : false,
+		assistance : false,
 		start : null,
-		target : null
+		target : null,
+		price : null
 	},
 	drunk : {
 		selected : targets.locations.Home
@@ -63,7 +70,15 @@ var selectedOptions = {
 }
 
 var soonTargets = {
-	locations : []
+	locations : {
+		Soon : {
+			name : null,
+			from : null,
+			to : null,
+			price : null,
+			date : null
+		}
+	}
 };
 
 function fillVehicles(){
@@ -179,7 +194,7 @@ function openPage(pageId){
 			var drunk_menu_container = document.getElementById($(pageId).attr('id'));
 			clearPage(pageId);
 			buildLocationDetectionScreen(drunk_menu_container);
-			window.setTimeout(showDrunkMenuDialog, 1000, drunk_menu_container);
+			window.setTimeout(showDrunkMenuDialog, 2500, drunk_menu_container);
 			break;
 		case 'booking_page_route-container':
 			var book_menu_container = document.getElementById($(pageId).attr('id'));
@@ -192,8 +207,9 @@ function openPage(pageId){
 				book_menu_container.innerHTML = document.getElementById('arival').innerHTML;
 					$('.check_final_final').click(function(e){
 						var parent_id = document.getElementById('abort_button').myParent;
-						logSoon();
+						logSoonBook();
 						closePage(parent_id);
+						createNotifications();
 					});
 					
 					fillBooking();
@@ -204,6 +220,7 @@ function openPage(pageId){
 			
 			break;
 		case 'settings_page-container' :
+			createTable(soonTargets.locations, document.getElementById("log_soon"));
 			createTable(targets.locations, document.getElementById("log_previous"));
 			break;
 	}
@@ -274,11 +291,13 @@ function showDrunkMenuDialog(drunk_menu_container) {
 	
 	$(dropdown).change(function(e) {
 		selectedOptions.drunk.selected = targets.locations[e.target.value];
+		var price = 0.00;
 		if (selectedOptions.drunk.selected.price != null){
-			document.getElementById('priceLabel').innerHTML = "Preis: " + selectedOptions.drunk.selected.price + " Euro";
+			price = selectedOptions.drunk.selected.price;
 		} else {
-			document.getElementById('priceLabel').innerHTML = "Preis: " + (Math.round(Math.random()*5000) / 100) + " Euro";
+			price = (Math.round(Math.random()*5000) / 100);
 		}
+		document.getElementById('priceLabel').innerHTML = "Preis: " + price + " Euro";
 	});
 	
 	//Create Options
@@ -286,12 +305,13 @@ function showDrunkMenuDialog(drunk_menu_container) {
 	
 	var priceLabel = document.createElement('label');
 	priceLabel.id = "priceLabel";
-	priceLabel.innerHTML = "Price: " + (Math.round(Math.random()*5000) / 100) + " Euro";
+	priceLabel.innerHTML = "Price: " + selectedOptions.drunk.selected.price + " Euro";
 	
 	var orderButton = document.createElement('button');
 	orderButton.className = "bottom-right-button";
 	orderButton.innerHTML = "Order";
 	$(orderButton).click(function(){
+		logSoonDrunk();
 		showDrunkMenuWaitingDialog(drunk_menu_container);
 	});
 	
@@ -325,10 +345,8 @@ function showDrunkMenuWaitingDialog(drunk_menu_container) {
 	nextButton.innerHTML = "Next";
 	$(nextButton).click(function(){
 		$('.abort').click();
-		$('#notification').fadeIn(1000);
-		window.setTimeout(function(){
-			$('#notification').fadeOut(1000);
-		}, 4000);
+		
+		createNotifications();
 	});
 	
 	drunk_menu_container.appendChild(waitLabel);
@@ -370,18 +388,26 @@ function set(string){
 			selectedOptions.book.foreigners = document.getElementById("Fremde_Mitfahrer").checked;
 			break;
 		case "Fahrtassistenz" :
-			selectedOptions.book.foreigners = document.getElementById("Fahrtassistenz").checked;
+			selectedOptions.book.assistance = document.getElementById("Fahrtassistenz").checked;
 			break;
 	} 
 }
 
 //
-function logSoon(){
-	//TODO
-	soonTargets.locations.push(
-		selectedOptions.book
-	);
-	console.log(soonTargets);
+function logSoonBook(){
+	soonTargets.locations.Soon.name = selectedOptions.book.target;
+	soonTargets.locations.Soon.from = selectedOptions.book.start;
+	soonTargets.locations.Soon.to = selectedOptions.book.target;
+	soonTargets.locations.Soon.price = selectedOptions.book.price;
+	soonTargets.locations.Soon.date = selectedOptions.book.startTime;
+}
+
+function logSoonDrunk(){
+	soonTargets.locations.Soon.name = selectedOptions.drunk.selected.to;
+	soonTargets.locations.Soon.from = selectedOptions.drunk.selected.from;
+	soonTargets.locations.Soon.to = selectedOptions.drunk.selected.to;
+	soonTargets.locations.Soon.price = selectedOptions.drunk.selected.price;
+	soonTargets.locations.Soon.date = new Date();
 }
 
 function createTable(container, target){
@@ -404,10 +430,26 @@ function createTable(container, target){
 	}
 }
 
-
-
-
-
+function createNotifications(){
+	$('#notification').fadeIn(1000);
+		$('#notification').click(function(){
+			$("#notification").html("?");
+			$('#notification').animate({
+				width:"80%",
+				height:"40%"
+			}, 1000);
+			console.log("display Data in Notifications");
+			createTable(soonTargets.locations, document.getElementById("notification"));
+			setTimeout(function(){
+				$("#notification").html("?");
+				console.log("close Notifications");
+					$('#notification').animate({
+					width:"5%",
+					height:"5%"
+				}, 1000);
+			}, 3000);
+		});
+}
 
 
 

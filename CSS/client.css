@@ -81,14 +81,12 @@ input:focus{
 #anstehende-fahrten-div{
 	width: 630px;
 	height: 300px;
-	background-color: Gainsboro;
 	text-align: left;
 }
 
 #vergangene-fahrten-div{
 	width: 630px;
 	height: 300px;
-	background-color: Gainsboro;
 	text-align: left;
 }
 
@@ -162,10 +160,14 @@ table, th, td {
 .table-row{
 	display:table-row;
 	width:100%;
+	padding:20px;
+	border: 1px solid rgba(100,140,100,1);
+	background-color: rgba(200,240,200,1);
 }
 
 .table-cell{
 	display:table-cell;
+	border: 1px solid rgba(100,140,100,1);
 }
 
 .home-screen-icon{
@@ -380,8 +382,8 @@ h3.heading{
 }
 #notification{
 	position:fixed;
-	width:100%;
-	height:60%;
+	width:5%;
+	height:5%;
 	left: 0;
 	top: 0;
 	z-index:3;
