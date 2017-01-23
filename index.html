@@ -96,10 +96,10 @@
 	<div id="book_menu"> 
 		<h3 class='heading'>Choose a route</h3>
 		<label class='textbox_label'> From :</label><br></br>
-		<input type="text" name="Arrival" id="arrival"
+		<input type="text" name="Arrival" id="arrival" class="book_selector"
 			oninput="set('arrival')"><br></br>
 		<label class='textbox_label'> To : </label><br></br>
-		<input type="text" name="Destination" id="destination"
+		<input type="text" name="Destination" id="destination" class="book_selector"
 			oninput="set('destination')"><br></br>
 		<div id="check_button">
 			<image class='check' 
@@ -130,7 +130,7 @@
 		</div>
 		<div class = "seperator">
 			<label class="select_label"> Foreign passengers : </label>
-			<input type="checkbox" id="Fremde_Mitfahrer" class="book_selector" onchange="set('Fremde_Mitfahrer')">
+			<input type="checkbox" name="checkbox" id="Fremde_Mitfahrer" class="book_selector" onchange="set('Fremde_Mitfahrer')">
 		</div>
 		<div class = "seperator">
 			<label class="select_label"> Driving assistance : </label>
@@ -152,7 +152,7 @@
 				<div class="table-cell">To</div><div class="table-cell" id="res_to"></div>
 			</div>
 			<div class="table-row">
-				<div class="table-cell">Vehicel</div><div class="table-cell" id="res_vehicle"></div>
+				<div class="table-cell">Vehicle</div><div class="table-cell" id="res_vehicle"></div>
 			</div>
 			<div class="table-row">
 				<div class="table-cell">Date</div><div class="table-cell" id="res_date"></div>

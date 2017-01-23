@@ -530,10 +530,12 @@ function createTable(container, target, direction){
 
 function createNotifications(){
 	$('#notification').fadeIn(1000);
+		$("#notification").html("<image class='notification_icon' src='Resources/car.png'></image>");
 		$('#notification').click(function(){
 			$("#notification").html("?");
 			$('#notification').animate({
-				height:"40%"
+				height:"40%",
+				width:"100%"
 			}, 1000);
 			console.log("display Data in Notifications");
 			createTable(soonTargets.locations, document.getElementById("notification"), "vertical");
@@ -541,11 +543,12 @@ function createNotifications(){
 			setTimeout(function(){
 				
 				console.log("close Notifications");
-				$("#notification").html("?");
-				
+				$("#notification").html("");
 				$('#notification').animate({
-					height:"5%"
+					height:"5%",
+					width:"10%"
 				}, 1000);
+				$("#notification").html("<image class='notification_icon' src='Resources/car.png'></image>");
 				
 			}, 3000);
 			
