@@ -308,9 +308,12 @@ function buildLocationDetectionScreen(parentDiv){
 	var loadingIconImage = new Image();
 	loadingIconImage.src = 'https://media.giphy.com/media/l0HlRF0GurmvjniFO/giphy.gif';
 	loadingIconImage.style.display = '-webkit-box';
-	loadingIconImage.style.paddingTop = '50%';
-	loadingIconImage.style.paddingLeft = '20%';
-	loadingIconImage.style.width = '60%';
+	loadingIconImage.style.top = '23%';
+	loadingIconImage.style.left = '18%';
+	loadingIconImage.style.width = '600px';
+	loadingIconImage.style.height = '600px';
+	loadingIconImage.style.position = 'fixed';
+	loadingIconImage.id = "loadingIconImage";
 	
 	var infoLabel = document.createElement('label');
 	infoLabel.innerHTML = "You are being located";

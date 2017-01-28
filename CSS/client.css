@@ -384,6 +384,10 @@ h3.heading{
 	background: linear-gradient(to bottom right, rgba(240,20,200,1), rgba(250,30,220,1)); /* Standard syntax */
 }
 
+#loadingIconImage{
+	border-radius: 100%;
+}
+
 #drunk_menu-container{
 	position:fixed;
 	width:100%;
