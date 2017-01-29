@@ -152,6 +152,10 @@ function createOptions(elements, target){
 }
 
 $(document).ready(function(){
+	if (! (!!window.chrome && !!window.chrome.webstore)){
+		alert('Please use Chrome!')
+		window.location = "https://www.google.de/chrome/browser/desktop/";
+	}
 	init();
 });
 
