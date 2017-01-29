@@ -320,6 +320,7 @@ function buildLocationDetectionScreen(parentDiv){
 	infoLabel.style.display = '-webkit-box';
 	infoLabel.style.textAlign = '-webkit-center';
 	infoLabel.style.paddingTop = '10%';
+	infoLabel.style.fontSize = '70px';
 	
 	
 	parentDiv.appendChild(loadingIconImage);
@@ -404,6 +405,7 @@ function showDrunkMenuWaitingDialog(drunk_menu_container) {
 	drunk_menu_container.appendChild(carLabel);
 	drunk_menu_container.appendChild(timeLabel);
 	drunk_menu_container.appendChild(nextButton);
+	hideAbortButton();
 	
 	
 }
@@ -538,7 +540,7 @@ function createNotifications(){
 			$("#notification").html("?");
 			$('#notification').animate({
 				height:"40%",
-				width:"100%"
+				width:"99%"
 			}, 1000);
 			console.log("display Data in Notifications");
 			createTable(soonTargets.locations, document.getElementById("notification"), "vertical");
